@@ -7,9 +7,11 @@ import { RootStackParamList } from "../Entry";
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 export default function HomeScreen({ route, navigation }: Props) {
+    const usingHermes = typeof HermesInternal === 'object' && HermesInternal !== null;
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text>Home Screen</Text>
+            <Text>{usingHermes ? "Hermes Enabled" : "Hermes Disabled"}</Text>
             <TouchableOpacity style={{
                 borderWidth: 1,
                 padding: 8,
